@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Prova3Bimestre.Models.Fornecedor>
+
+@{
+    ViewData["Title"] = "Fornecedores Cadastrados";
+}
+<h1 style="text-align:center">Fornecedores</h1>
+
+<table class="table" style="background-color: black!important; color: white!important">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CNPJ)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Nome
+                </td>
+                <td>
+                    @item.email
+                </td>
+                <td>
+                    @item.Telefone
+                </td>
+                <td>
+                    @item.CNPJ
+                </td>
+                <td>
+                    <a class="btn btn-outline-primary btn-sm" asp-action="Editar" asp-route-id="@item.Id" style="color: white!important">Editar</a>
+                    <a class="btn btn-outline-danger text-white btn-sm" asp-action="Apagar" asp-route-id="@item.Id" style="color: white!important">Apagar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
